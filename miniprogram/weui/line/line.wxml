@@ -1,0 +1,2 @@
+<!--weui/line/line.wxml-->
+<view class="line" style="width: {{width}}; border-top: solid {{height}} {{color}}"></view>

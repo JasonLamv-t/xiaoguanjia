@@ -1,0 +1,128 @@
+{
+	"miniprogramRoot": "miniprogram/",
+	"cloudfunctionRoot": "cloudfunctions/",
+	"setting": {
+		"urlCheck": true,
+		"es6": false,
+		"enhance": true,
+		"postcss": true,
+		"preloadBackgroundData": false,
+		"minified": true,
+		"newFeature": true,
+		"coverView": true,
+		"nodeModules": true,
+		"autoAudits": true,
+		"showShadowRootInWxmlPanel": true,
+		"scopeDataCheck": true,
+		"uglifyFileName": true,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		},
+		"useCompilerModule": false
+	},
+	"appid": "wxb8272024f27f861d",
+	"projectname": "xiaoguanjia",
+	"libVersion": "2.9.0",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "pages/casLogin/casLogin",
+					"pathName": "pages/casLogin/casLogin",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/user/user",
+					"pathName": "pages/user/user",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/appinfo/appinfo",
+					"pathName": "pages/appinfo/appinfo",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/user/IDcard",
+					"pathName": "pages/user/IDcard",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/user/userAccount",
+					"pathName": "pages/user/userAccount",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/document/document",
+					"pathName": "pages/document/document",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/document/serach",
+					"pathName": "pages/document/serach",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/document/folderDetail",
+					"pathName": "pages/document/folderDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/appinfo/userAgreement",
+					"pathName": "pages/appinfo/userAgreement",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/wantDGUTbetter/wantDGUTbetter",
+					"pathName": "pages/wantDGUTbetter/wantDGUTbetter",
+					"scene": null
+				}
+			]
+		}
+	}
+}

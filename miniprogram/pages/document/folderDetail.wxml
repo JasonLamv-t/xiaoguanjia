@@ -1,0 +1,126 @@
+<!--miniprogram/pages/document/folderDetail.wxml-->
+<!-- 顶部搜索栏及菜单 -->
+<view class="top">
+	<navigator url="./serach" class="search">
+		<view class="search-icon iconfont iconsousuo"></view>
+		<view style="margin-left: 4px">搜索</view>
+	</navigator>
+	<button class="top-button" open-type="share" wx:if="{{!isCollect}}">
+		<view class="top-icon iconfont iconshare" style="margin-left: 0;"></view>
+	</button>
+	<view class="top-icon iconfont iconellipsis" style="margin-right: 8px; font-weight: 600" bindtap="showMoreMenu"></view>
+</view>
+
+<!-- 选择顶部栏 -->
+<view class="top-sheet weui-toptips {{isSelect?'weui-toptips_show':''}}" style="-webkit-transition: all .28s ease-in-out; transition: all .28s ease-in-out">
+	<view style="margin: auto 0; margin-left: 4%" bindtap="cancelSelect">取消</view>
+	<view style="font-size: 17px; color: #333333; margin: auto auto; font-weight: 700;">已选中{{selectCount}}个文件</view>
+	<view style="margin: auto 0; margin-right: 4%" bindtap="fullSelect">全选</view>
+</view>
+
+<!-- 菜单 -->
+<view class="menu animated {{isMenushow?'fadeOut':'fadeIn'}}" style="animation-duration: 130ms" wx:if="{{isMenuShow}}">
+	<view class="menu-item" bindtap="sortByName" data-type="1">
+		<view class="menu-icon iconfont iconsort-ascending"></view>
+		<text class="menu-text">按名称正序</text>
+	</view>
+	<view class="menu-item" bindtap="sortByName" data-type="0">
+		<view class="menu-icon iconfont iconsort-descending"></view>
+		<text class="menu-text">按名称倒序</text>
+	</view>
+	<view class="menu-item" bindtap="sortByTime">
+		<view class="menu-icon iconfont iconField-time"></view>
+		<text class="menu-text">按时间排序</text>
+	</view>
+	<view class="menu-item" style="border: none" bindtap="setSelect">
+		<view class="menu-icon iconfont iconselect"></view>
+		<text class="menu-text" decode="{{true}}">选择文件 &nbsp; &nbsp; </text>
+	</view>
+</view>
+
+<view class="page" bindtap="onPageScroll">
+
+	<!-- 文件夹列表 -->
+	<block wx:for="{{folders}}" wx:key="this">
+		<view class="folder" bindtap="navigatoDetail" data-index="{{index}}">
+			<image class="icon" src="../../images/folder.png" />
+			<view class="folder-text">
+				<view class="folder-name">{{item.name}}</view>
+				<view class="folder-label">
+					<text decode="{{true}}">{{item.date}} &nbsp;</text>
+					<text>{{item.label}}</text>
+				</view>
+			</view>
+			<view class="arrow-icon iconfont iconright"></view>
+		</view>
+		<mp-line width="92%"></mp-line>
+	</block>
+
+	<!-- 文件列表 -->
+	<block wx:for="{{files}}" wx:key="this">
+		<view class="folder">
+			<image class="file-icon" src="./documentIcon/file_{{item.type}}.png" />
+			<view class="folder-text" bindtap="previewFile" data-index="{{index}}">
+				<view class="folder-name">{{item.name}}</view>
+				<view class="folder-label">
+					<text decode="{{true}}">{{item.date}}&nbsp;</text>
+					<text wx:if="{{item.label}}">{{item.label}}</text>
+					<text wx:if="{{item.size}}">{{item.size}}</text>
+				</view>
+			</view>
+			<view class="circle-icon iconfont {{ selectList[index]? 'iconcheck-circle-fill':'iconcircle'}}" bindtap="selectFile" data-index="{{index}}" style="color: {{ selectList[index]? '#4fadf8':''}}; font-size: {{ isSelect? '40rpx':''}}"></view>
+		</view>
+		<mp-line width="92%"></mp-line>
+	</block>
+
+	<!-- 文件测试占位 -->
+	<!-- <block wx:for="{{10}}" wx:key="this">
+		<view class="folder">
+			<image class="file-icon" src="./documentIcon/file_{{item.type}}.png" />
+			<view class="folder-text" bindtap="previewFile" data-index="{{index}}">
+				<view class="folder-name">name</view>
+				<view class="folder-label">
+					<text decode="{{true}}">date &nbsp;</text>
+					<text>label</text>
+				</view>
+			</view>
+			<view class="circle-icon iconfont {{ selectList[index]? 'iconcheck-circle-fill':'iconcircle'}}" bindtap="selectFile" data-index="{{index}}" style="color: {{ selectList[index]? '#4fadf8':''}}; font-size: {{ isSelect? '40rpx':''}}"></view>
+		</view>
+		<mp-line width="92%"></mp-line>
+	</block> -->
+
+	<!-- 空空如也提示 -->
+	<view class="nothing" wx:if="{{!folders.length && !files.length}}">
+		<image class="nothing-icon" src="./documentIcon/nothing.png"></image>
+		<text class="nothing-text">空空如也...</text>
+	</view>
+
+	<!-- 选择底部菜单栏 -->
+	<view class="weui-actionsheet {{isSelect? 'weui-actionsheet_toggle':''}} actionsheet" style="color: {{selectCount? 'white':'#dddddd;'}}">
+		<view class="sheet-item" bindtap="download">
+			<view class="sheet-icon iconfont icondownload"></view>
+			<view class="sheet-text">下载</view>
+		</view>
+		<view class="sheet-item" bindtap="copyUrl">
+			<view class="sheet-icon iconfont iconfile-copy"></view>
+			<view class="sheet-text">复制链接</view>
+		</view>
+		<button class="sheet-button" open-type="share" data-type="file" disabled="{{!selectCount}}">
+			<view class="sheet-item">
+				<view class="sheet-icon iconfont iconshare"></view>
+				<view class="sheet-text">分享</view>
+			</view>
+		</button>
+		<view class="sheet-item" bindtap="addCollect" wx:if="{{!isCollect}}">
+			<view class="sheet-icon iconfont iconstar"></view>
+			<view class="sheet-text">收藏</view>
+		</view>
+		<view class="sheet-item" bindtap="delCollect" wx:if="{{isCollect}}">
+			<view class="sheet-icon iconfont iconstar"></view>
+			<view class="sheet-text">取消收藏</view>
+		</view>
+	</view>
+
+	<!-- 中央认证跳转弹窗 -->
+	<mp-dialog show="{{isDialogShow}}" bindbuttontap="navigatoCas" buttons="{{dialogBtns}}">请先进行中央认证登陆</mp-dialog>
+</view>

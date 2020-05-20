@@ -1,0 +1,144 @@
+/* miniprogram/pages/document/document.wxss */
+@import '../../style/animate.wxss';
+
+page {
+  background-color: white;
+  width: 100%;
+  height: 100%;
+}
+
+.page{
+  padding-top: 48px;
+}
+
+.menu{
+  width: 120px;
+  height: 120px;
+  position: fixed;
+  top: 50px;
+  right: 8px;
+  background-color: white;
+  /* border: solid 1px black; */
+  box-shadow: -1px 1px 2px 3px #fafafa;
+  border-radius: 8px;
+}
+
+.menu-item{
+  width: 100%;
+  height: 40px;
+  display: inline-flex;
+  font-size: 14px;
+  line-height: 40px;
+  border-bottom: solid 1rpx #eee;
+}
+
+.menu-icon{
+  font-size: 20px;
+  margin: auto 0;
+  margin-left: auto;
+}
+
+.menu-text{
+  margin: auto 0;
+  margin-left: 4rpx;
+  margin-right: auto;
+}
+
+.folder {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+}
+
+.icon {
+  width: 72rpx;
+  height: 60rpx;
+  margin: auto 28rpx;
+}
+
+.folder-text {
+  width: 80%;
+  height: auto;
+  margin: 20rpx 0;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+}
+
+.folder-name {
+  font-size: 30rpx;
+  line-height: 30rpx;
+  font-weight: 400;
+}
+
+.folder-label {
+  font-size: 26rpx;
+  line-height: 30rpx;
+  margin-top: 6rpx;
+  color: #aaa;
+}
+
+.arrow-icon {
+  width: auto;
+  height: auto;
+  font-size: 40rpx;
+  line-height: 40rpx;
+  margin: auto 0;
+  margin-right: 4%;
+  color: #ddd;
+}
+
+.top{
+  width: 100%;
+  height: auto;
+  padding: 8px 0;
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  background-color: white;
+}
+
+.top-button{
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  margin-left: 8px;
+  border-radius: 16px;
+}
+
+.top-button::after{
+  border: none;
+}
+
+.top-icon{
+  width: 32px;
+  height: 32px;
+  margin-left: 8px;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 32px;
+  text-align: center;
+  background: #ededed;
+  border-radius: 16px;
+}
+
+.search{
+  display: inline-flex;
+  flex-grow: 1;
+  margin-left: 8px;
+  line-height: 32px;
+  font-size: 14px;
+  text-align: left;
+  color: rgba(0, 0, 0, 0.5);
+  background: #ededed;
+  border-radius: 16px;
+}
+.search-icon{
+  width: 1em;
+  font-size: 16px;
+  margin: auto 0;
+  margin-left: 12px;
+  height: 1em;
+  line-height: 1em;
+}

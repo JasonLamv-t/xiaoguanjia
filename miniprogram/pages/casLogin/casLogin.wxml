@@ -1,0 +1,46 @@
+<!--miniprogram/pages/casLogin/casLogin.wxml-->
+<view class="page">
+  <view class="bk">
+    <view class="bk-mask"></view>
+    <image class="bk-image" src="https://cas.dgut.edu.cn/static/home/pc/assets/loginBg.jpg" mode="scaleToFill" />
+  </view>
+  <view class="top">
+    <image class="top-logo" src="/images/schoolLogo.png"></image>
+    <image class="top-name" src="/images/schoolName.png"></image>
+  </view>
+  <view class="main">
+    <view class="main-title">
+      <view class="main-line"></view>
+      <view style="height:24px; margin: auto auto;">中央认证系统</view>
+      <view class="main-line"></view>
+    </view>
+    <view class="main-inputArea">
+      <view class="iconfont iconuser main-icon"></view>
+      <input class="main-input" placeholder="请输入中央认证账号" placeholder-style="color: white;" bindinput="bindinput" data-index="username" value="{{username}}"></input>
+    </view>
+    <view class="main-inputArea">
+      <view class="iconfont iconlock main-icon"></view>
+      <input class="main-input" placeholder="请输入中央认证密码" placeholder-style="color: white;" bindinput="bindinput" data-index="password" type="password" value="{{password}}"></input>
+    </view>
+    <view class="help" bindtap="showHelp">
+      <view style="margin-left: 3px;">帮助</view>
+      <view class="iconfont iconquestion-circle help-icon"></view>
+    </view>
+    <button class="main-button" bindtap="login">登录</button>
+  </view>
+  <mp-dialog title="指纹认证" show="{{dialogShow}}" bindbuttontap="tapDialogButton" buttons="{{buttons}}" mask-closable="{{false}}">
+    <view>是否开启指纹验证</view>
+  </mp-dialog>
+  <mp-dialog title="帮助" show="{{helpShow}}" bindbuttontap="tapDialogButton" hasFooter="{{false}}">
+    <view style="dispaly: flex; flex-direction:   column; font-size: 30rpx; color: 606060; text-align: left;">
+      <view class="help-title" style="margin-top:0;">登录方式</view>
+      <text>目前暂不支持微信内登录及扫码登录</text>
+      <view class="help-title">忘记密码</view>
+      <text>请在浏览器访问以下网页 https://cas.dgut.edu.cn/home/Phone/phoneCallBackPassword.html</text>
+      <view class="help-title">安全性</view>
+      <text>登录请求由小程序端直接发起；如您使用了指纹验证，用户名及密码将会加密储存在本地</text>
+    </view>
+  </mp-dialog>
+  <mp-toptips msg="{{ error }}" type="error" show="{{ error }}"></mp-toptips>
+  <mp-footer body="Copyright © 2017-2020 DGUT" color="#fff" end="{{ true }}" fontSize="10px;"></mp-footer>
+</view>

@@ -1,0 +1,27 @@
+page {
+  background-color: #f7f8fa;
+}
+
+.page{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+van-cell-group {
+  margin-top: 15rpx;
+  margin-bottom: 15rpx;
+}
+
+.van-cell-group__title {
+  font-size: 36rpx !important;
+  border: none;
+}
+
+.van-field__input {
+  color: black !important;
+}
+
+.van-switch.switch-index--van-switch{
+  vertical-align: middle;
+}

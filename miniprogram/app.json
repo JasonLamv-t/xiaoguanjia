@@ -1,0 +1,43 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/casLogin/casLogin",
+    "pages/user/user",
+    "pages/appinfo/appinfo",
+    "pages/appinfo/userAgreement",
+    "pages/user/IDcard",
+    "pages/user/userAccount",
+    "pages/document/document",
+    "pages/document/serach",
+    "pages/document/folderDetail",
+    "pages/wantDGUTbetter/wantDGUTbetter"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#424EA9",
+    "navigationBarTitleText": "校会小莞家",
+    "navigationBarTextStyle": "white"
+  },
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "mp-footer": "/weui/footer/footer",
+    "mp-cell": "/weui/cell/cell",
+    "mp-dialog": "/weui/dialog/dialog",
+    "mp-picker": "/weui/picker/picker",
+    "mp-toptips": "/weui/toptips/toptips",
+    "mp-tabs": "weui/tabs/index",
+    "mp-searchbar": "/weui/searchbar/searchbar",
+    "mp-line": "/weui/line/line",
+    "van-skeleton": "/vant/skeleton/index",
+    "van-cell": "/vant/cell/index",
+    "van-cell-group": "/vant/cell-group/index",
+    "van-field": "/vant/field/index",
+    "van-switch": "/vant/switch/index"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于天气信息"
+    }
+  }
+}

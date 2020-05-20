@@ -1,0 +1,9 @@
+<!--pages/footer/footer.wxml-->
+<!-- <view class="page__bd page__bd_spacing"> -->
+<view class="{{ isBottom? 'weui-footer weui-footer_fixed-bottom':'weui-footer' }}" style="color: {{ color }}; font-size: {{ fontSize }}">
+  <navigator class="weui-footer__link" url="{{ url }}" wx:if="{{ link }}" style="color: {{ color == 'black'? '#586C94':color }}">{{ link }}</navigator>
+  <view class="weui-footer__text">{{ title }}</view>
+  <view class="weui-footer__text">{{ body }}</view>
+  <view class="weui-footer__text" wx:if="{{ end }}">All Rights Reserved.</view>
+</view>
+<!-- </view> -->

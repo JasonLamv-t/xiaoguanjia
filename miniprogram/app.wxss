@@ -1,0 +1,4 @@
+/**app.wxss**/
+@import '/weui/weui-wxss/dist/style/weui.wxss';
+@import "/vant/common/index.wxss";
+@import '/style/iconfont.wxss';

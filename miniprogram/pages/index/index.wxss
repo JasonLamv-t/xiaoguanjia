@@ -1,0 +1,253 @@
+/**index.wxss**/
+
+page {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.top {
+  width: 100%;
+  height: 240rpx;
+  display: flex;
+  flex-direction: row;
+  color: white;
+  /* border: solid 1rpx #fff; */
+}
+
+.top-background {
+  width: 100%;
+  height: 280rpx;
+  position: absolute;
+  background-color: #424ea9;
+  z-index: -9;
+}
+
+.top-left {
+  width: 300rpx;
+  height: 159rpx;
+  display: flex;
+  flex-direction: column;
+  margin-top: 45rpx;
+  margin-left: 80rpx;
+  /* border: solid 1rpx #fff; */
+}
+
+.city {
+  height: 40rpx;
+  font-style: 36rpx;
+  line-height: 36rpx;
+  font-weight: 600;
+}
+
+.position{
+  height: 60rpx;
+  font-size: 54rpx;
+  line-height: 54rpx;
+}
+
+.top-left-bottom {
+  width: 100%;
+  height: 64rpx;
+  display: flex;
+  flex-direction: row;
+  /* border: solid 1rpx #fff; */
+}
+
+.topIcon {
+  width: 64rpx;
+  height: 64rpx;
+  margin-left: 0;
+  /* border: solid 1rpx #fff; */
+}
+
+.nowTamp {
+  width: 100rpx;
+  height: 64rpx;
+  font-size: 42rpx;
+  line-height: 64rpx;
+  margin-left: 10rpx;
+  /* border: solid 1rpx #fff; */
+}
+
+.airQuality {
+  width: 66rpx;
+  height: 42rpx;
+  font-size: 30rpx;
+  line-height: 42rpx;
+  text-align: center;
+  margin: auto auto;
+  margin-left: 12rpx;
+  border-radius: 20rpx;
+  color: black;
+  background-color: #e2fcd1;
+  /* border: solid 1rpx #fff; */
+}
+
+.top-image {
+  width: 210rpx;
+  height: 210rpx;
+  display: flex;
+  margin-top: 24rpx;
+  margin-left: 0rpx;
+  z-index: 1;
+  /* border: solid 1rpx #fff; */
+}
+
+.icons{
+  width: 64rpx;
+  height: 170rpx;
+  margin-left: 20rpx;
+  margin-top: 40rpx;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.qrcode{
+  width: 64rpx;
+  height: 64rpx;
+  margin: auto auto;
+  font-size: 46rpx;
+  line-height: 64rpx;
+  font-weight: 400;
+  color: #424ea9;
+  background-color: white;
+  border-radius: 32rpx;
+}
+
+.scan {
+  width: 64rpx;
+  height: 64rpx;
+  margin: auto auto;
+  font-size: 60rpx;
+  line-height: 64rpx;
+}
+
+.user {
+  width: 90%;
+  height: 132rpx;
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  left: 5%;
+  top: 212rpx;
+  border-radius: 25rpx;
+  color: black;
+  background-color: white;
+  box-shadow: 2rpx 4rpx 10rpx #ccc;
+  z-index: 0;
+}
+
+.user-avatar {
+  width: 100rpx;
+  height: 100rpx;
+  display: flex;
+  margin-top: 16rpx;
+  margin-left: 28rpx;
+  background-size: cover;
+  background-color: white;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.user-nickname {
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 36rpx;
+  margin-top: 46rpx;
+  margin-left: 20rpx;
+  color: black;
+  /* border: solid 1rpx #000; */
+}
+
+.user-jumper {
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 36rpx;
+  position: relative;
+  margin-top: 46rpx;
+  margin-left: auto;
+  margin-right: 40rpx;
+  color: blueviolet;
+  /* border: solid 1rpx #000; */
+}
+
+.main {
+  margin-top: 130rpx;
+}
+
+.weui-tabs-bar__wrp {
+  width: 90% !important;
+  /* border-bottom: 1px solid #eee; */
+  margin: 0 auto;
+}
+
+.weui-tabs-swiper-0 {
+  width: 100%;
+  height: 680rpx;
+}
+
+.weui-tabs-swiper-1 {
+  width: 100%;
+  height: 680rpx;
+}
+
+.tab-content {
+  height: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 40rpx;
+}
+
+.weui-tabs-bar__title {
+  margin: 0px 10px;
+}
+
+.tab-bar-title__selected {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.module {
+  width: 90%;
+  height: 142rpx;
+  margin-bottom: 20rpx;
+  margin-left: 5%;
+  display: flex;
+  flex-direction: row;
+  /* border: solid 1rpx #000; */
+  background-color: white;
+  box-shadow: 2rpx 2rpx 12rpx #bbb;
+  border-radius: 25rpx;
+}
+
+.module-icon {
+  font-size: 72rpx;
+  line-height: 142rpx;
+  margin: auto 30rpx;
+}
+
+.module-text {
+  width: 500rpx;
+  display: flex;
+  flex-direction: column;
+  margin: auto auto;
+  margin-left: 0;
+}
+
+.module-title {
+  /* margin-top: 40rpx; */
+  line-height: 32rpx;
+  font-size: 32rpx;
+  font-weight: 600;
+}
+
+.module-label {
+  margin-top: 5rpx;
+  line-height: 24rpx;
+  font-size: 24rpx;
+}

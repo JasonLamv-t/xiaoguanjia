@@ -1,0 +1,10 @@
+<view class="main">
+  <view class="top">
+    <image class="icon" src="/images/logo.png" bindtap="click" />
+    <view class="name">校会小莞家</view>
+    <view class="version">Version 0.1.1</view>
+  </view>
+  <!-- footer -->
+  <!-- link="《更新记录》" url="./userAgreement"  -->
+  <mp-footer title="东莞理工学院学生会信息化小组" body="Copyright © 2020 DGUT.SU." color="#fff" end="{{ true }}" fontSize="20rpx;"></mp-footer>
+</view>

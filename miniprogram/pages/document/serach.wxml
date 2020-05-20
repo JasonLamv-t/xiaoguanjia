@@ -1,0 +1,2 @@
+<!--miniprogram/pages/document/serach.wxml-->
+<mp-searchbar focus="{{true}}" bindselectresult="selectResult" search="{{search}}" bindcancel="cancelSearch" searchState="{{isSearch}}" resultClass="resultClass" throttle="800"/>

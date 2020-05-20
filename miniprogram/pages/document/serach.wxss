@@ -1,0 +1,4 @@
+/* miniprogram/pages/document/serach.wxss */
+.resultClass{
+  font-size: 26rpx;
+}

@@ -1,0 +1,24 @@
+<view class="page">
+  <van-cell-group title="个人信息">
+    <van-field label="姓名" value="{{stuData.name}}" border="{{ false }}" disabled />
+    <van-field label="学号" value="{{stuData.stuID}}" border="{{ false }}" disabled />
+    <van-field label="学院" value="{{stuData.faculty}}" border="{{ false }}" disabled />
+    <van-field label="班级" value="{{stuData._class}}" border="{{ false }}" disabled />
+  </van-cell-group>
+
+  <!-- <van-cell-group title="学生组织信息">
+    <van-field label="组织类型" value="林家祥" border="{{ false }}" disabled>
+      <view slot="right-icon" class="iconfont iconright"></view>
+    </van-field>
+    <van-field label="所在组织" value="林家祥" border="{{ false }}" disabled>
+      <view slot="right-icon" class="iconfont iconright"></view>
+    </van-field>
+    <van-field label="手机" value="林家祥" border="{{ false }}" disabled />
+  </van-cell-group> -->
+  
+  <van-cell-group title="账户设置">
+    <van-cell title="指纹识别登录" center>
+      <van-switch slot="" size="46rpx" checked="{{ isUseFinger }}" bind:change="setFinger" />
+    </van-cell>
+  </van-cell-group>
+</view>

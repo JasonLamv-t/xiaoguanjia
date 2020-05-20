@@ -1,0 +1,5 @@
+/* weui/line/line.wxss */
+.line{
+  height: 1rpx;
+  margin: auto auto;
+}

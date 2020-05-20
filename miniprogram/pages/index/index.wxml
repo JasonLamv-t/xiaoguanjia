@@ -1,0 +1,107 @@
+<!--index.wxml-->
+<view class="page">
+
+	<!-- 顶部 -->
+	<!-- 背景 -->
+	<view class="top-background"></view>
+
+	<view class="top">
+		<!-- 左侧文字 -->
+		<view class="top-left">
+			<!-- 位置信息 -->
+			<van-skeleton row="1" row-width="100%" loading="{{ !city }}" class="city">
+				<view class="city iconfont iconlocation">{{ city }}</view>
+			</van-skeleton>
+			<van-skeleton row="1" row-width="100%" loading="{{ !position }}" class="position">
+				<view class="position">{{ position }}</view>
+			</van-skeleton>
+			<!-- 天气信息 -->
+			<van-skeleton avatar avatar-size="64rpx" title title-width="100%" loading="{{ !nowTamp || !airQuality }}">
+				<view class="top-left-bottom">
+					<image class="topIcon" src="cloud://main-dgutsu.6d61-main-dgutsu-1301452241/cond_icon/{{ cond_code }}.png"></image>
+					<view class="nowTamp">{{ nowTamp }}</view>
+					<view class="airQuality">{{ airQuality }}</view>
+				</view>
+			</van-skeleton>
+		</view>
+		<!-- 右侧肉肉 -->
+		<image class="top-image" src="/images/rourou.png"></image>
+		<view class="icons">
+			<!-- 二维码按钮 -->
+			<navigator target="miniProgram" app-id="wx68fc0369bf6933ea">
+				<view class="iconfont iconqrcode qrcode"></view>
+			</navigator>
+			<!-- 扫码按钮 -->
+			<view class="iconfont iconsaoma scan" bindtap="scan"></view>
+		</view>
+	</view>
+
+	<!-- 用户信息栏 -->
+	<view class="user">
+		<!-- 头像 -->
+		<view class="user-avatar">
+			<open-data type="userAvatarUrl" default-avatar="/images/avatar.png"></open-data>
+		</view>
+
+		<!-- 昵称 -->
+		<block wx:if="{{ !hasUserData }}">
+			<view class="user-nickname">
+				<open-data type="userNickName"></open-data>
+			</view>
+		</block>
+		<block wx:else>
+			<view class="user-nickname">{{ userData.name }}</view>
+		</block>
+		<navigator wx:if="{{ isLogined }}" url="/pages/user/user" class="user-jumper">个人中心</navigator>
+		<navigator wx:else url="/pages/casLogin/casLogin" class="user-jumper">登录</navigator>
+	</view>
+
+	<!-- 主要部分 -->
+	<view class="main">
+		<mp-tabs tabs="{{tabs}}" activeTab="{{activeTab}}" tab-underline-color="#424ea9" tab-class="tabs" swiperClass="weui-tabs-swiper-{{activeTab}}" bindtabclick="onTabCLick" bindchange="onChange" activeClass="tab-bar-title__selected">
+			<!-- 服务 -->
+			<navigator url="../document/document" hover-class="none" slot="tab-content-0">
+				<view class="module" style="margin-top: 20rpx;">
+					<view class="module-icon iconfont iconfilesearch"></view>
+					<view class="module-text">
+						<view class="module-title">常用文件</view>
+						<view class="module-label">常用文档搜索及下载</view>
+					</view>
+				</view>
+			</navigator>
+
+			<!-- <navigator url="../wantDGUTbetter/wantDGUTbetter" hover-class="none" slot="tab-content-0">
+				<view class="module" style="margin-top: 20rpx;">
+					<view class="module-icon iconfont iconbad_message"></view>
+					<view class="module-text">
+						<view class="module-title">我想莞工变得更好</view>
+						<view class="module-label">校园问题反馈</view>
+					</view>
+				</view>
+			</navigator> -->
+
+			<navigator target="miniProgram" app-id="wxa1f74bfdc4dc2804" hover-class="none" slot="tab-content-0">
+				<view class="module" style="margin-top: 20rpx;">
+					<view class="module-icon iconfont iconcompass"></view>
+					<view class="module-text">
+						<view class="module-title">莞工校园导览</view>
+					</view>
+				</view>
+			</navigator>
+
+			<!-- 专区 -->
+			<navigator url="../document/document" hover-class="none" slot="tab-content-1" wx:for="{{0}}">
+				<view class="module" style="margin-top: 20rpx;">
+					<view class="module-icon iconfont iconfilesearch"></view>
+					<view class="module-text">
+						<view class="module-title">常用文件</view>
+						<view class="module-label">常用文档搜索及下载</view>
+					</view>
+				</view>
+			</navigator>
+		</mp-tabs>
+	</view>
+
+	<!-- footer -->
+	<mp-footer title="东莞理工学院学生会信息化小组" body="Copyright © 2020 DGUT.SU." color="#888888" end="{{ false }}" fontSize="18rpx;" isBottom="{{ true }}"></mp-footer>
+</view>

@@ -1,0 +1,16 @@
+<!--miniprogram/weui-miniprogram/picker/picker.wxml-->
+<mp-halfScreenDialog bindclose="close" show="{{show}}" subTitle="{{subTitle}}" noFooter="{{true}}">
+  <view slot="title">{{title}}</view>
+  <!-- <view slot="desc">0.0</view> -->
+  <picker-view slot="desc" indicator-style="height: 44px;" style="width: 100%; height: 400rpx;" bindchange="bindchange">
+    <picker-view-column wx:if="{{col >=1}}">
+      <view wx:for="{{column_1}}" wx:key="{{this}}" style="line-height: 44px">{{item}}</view>
+    </picker-view-column>
+    <picker-view-column wx:if="{{col >=2}}">
+      <view wx:for="{{column_2}}" wx:key="{{this}}" style="line-height: 44px">{{item}}</view>
+    </picker-view-column>
+    <picker-view-column wx:if="{{col ==3}}">
+      <view wx:for="{{column_3}}" wx:key="{{this}}" style="line-height: 44px">{{item}}</view>
+    </picker-view-column>
+  </picker-view>
+</mp-halfScreenDialog>

@@ -1,0 +1,75 @@
+<!--pages/user/user.wxml-->
+<view class="page">
+  <!-- 顶部背景 -->
+  <view class="top-background"></view>
+
+  <!-- 顶部用户块 -->
+  <view class="user">
+    <open-data class="user-avatar" type="userAvatarUrl" default-avatar="/images/avatar.png"></open-data>
+    <view class="user-data">
+      <view class="userData">{{ basicInfo.name }}</view>
+      <view class="userData">{{ basicInfo.faculty_title }}</view>
+    </view>
+    <navigator class="iconfont iconidcard user-IDCard" url="./IDcard" hidden="{{true}}"></navigator>
+  </view>
+
+  <!-- 主要部分 -->
+  <view class="main">
+    <view class="list" style="margin-top: 16rpx;">
+      <button class="custom-button" bindtap="navigaToAccount">
+        <view class="iconfont iconuser custom-button-icon"></view>
+        <view class="custom-button-text">账户与安全</view>
+        <view class="iconfont iconright custom-button-foot"></view>
+      </button>
+		<mp-line width="94%"></mp-line>
+
+      <button class="custom-button" open-type="openSetting">
+        <view class="iconfont iconcontrol custom-button-icon"></view>
+        <view class="custom-button-text">授权设置</view>
+        <view class="iconfont iconright custom-button-foot"></view>
+      </button>
+      <mp-line width="94%"></mp-line>
+
+      <button class="custom-button" open-type="contact">
+        <view class="iconfont iconcomment custom-button-icon"></view>
+        <view class="custom-button-text">在线联系</view>
+        <view class="iconfont iconright custom-button-foot"></view>
+      </button>
+      <mp-line width="94%"></mp-line>
+
+      <button class="custom-button" open-type="feedback">
+        <view class="iconfont iconmail custom-button-icon"></view>
+        <view class="custom-button-text">意见反馈</view>
+        <view class="iconfont iconright custom-button-foot"></view>
+      </button>
+      <mp-line width="94%"></mp-line>
+
+      <button class="custom-button" bindtap="showDialog">
+        <view class="iconfont iconinfo-circle custom-button-icon"></view>
+        <view class="custom-button-text">数据来源</view>
+        <view class="iconfont iconright custom-button-foot"></view>
+      </button>
+      <mp-line width="94%"></mp-line>
+
+      <navigator url="/pages/appinfo/appinfo" hover-class="none">
+        <button class="custom-button">
+          <view class="iconfont iconappstore custom-button-icon"></view>
+          <view class="custom-button-text">关于小莞家</view>
+          <view class="iconfont iconright custom-button-foot"></view>
+        </button>
+      </navigator>
+
+    </view>
+  </view>
+
+  <mp-dialog title="数据来源" show="{{dialogShow}}" bindbuttontap="tapDialogButton" hasFooter="{{false}}">
+    <view style="dispaly: flex; flex-direction: column; font-size: 30rpx; color: 606060">
+      <view>天气数据-和风天气</view>
+      <view>位置信息-腾讯位置服务</view>
+      <view>UI参考-粤省事</view>
+    </view>
+  </mp-dialog>
+
+  <!-- footer -->
+  <mp-footer title="东莞理工学院学生会信息化小组" body="Copyright © 2020 DGUT.SU." color="#888888" end="{{ false }}" fontSize="18rpx;"></mp-footer>
+</view>
