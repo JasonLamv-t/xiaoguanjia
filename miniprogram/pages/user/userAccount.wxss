@@ -2,26 +2,29 @@ page {
   background-color: #f7f8fa;
 }
 
-.page{
+.page {
   width: 100%;
   display: flex;
   flex-direction: column;
 }
 
-van-cell-group {
-  margin-top: 15rpx;
-  margin-bottom: 15rpx;
+.weui-cell__hd {
+  width: 80px;
 }
 
-.van-cell-group__title {
-  font-size: 36rpx !important;
-  border: none;
+.wx-switch-input {
+  width: 42px !important;
+  height: 22px !important;
 }
 
-.van-field__input {
-  color: black !important;
+.wx-switch-input::before {
+  width: 42px !important;
+  height: 22px !important;
 }
 
-.van-switch.switch-index--van-switch{
-  vertical-align: middle;
+.wx-switch-input::after {
+  width: 20px !important;
+  height: 20px !important;
 }
+
+/* 中间小圆球 */

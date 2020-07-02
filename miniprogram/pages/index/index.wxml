@@ -29,10 +29,10 @@
 		<view class="icons">
 			<!-- 二维码按钮 -->
 			<navigator target="miniProgram" app-id="wx68fc0369bf6933ea">
-				<view class="iconfont iconqrcode qrcode"></view>
+				<view class="iconfont iconqrcode button"></view>
 			</navigator>
 			<!-- 扫码按钮 -->
-			<view class="iconfont iconsaoma scan" bindtap="scan"></view>
+			<view class="iconfont iconscan button" bindtap="scan"></view>
 		</view>
 	</view>
 

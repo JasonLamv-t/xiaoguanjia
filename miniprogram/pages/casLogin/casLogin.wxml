@@ -16,11 +16,11 @@
     </view>
     <view class="main-inputArea">
       <view class="iconfont iconuser main-icon"></view>
-      <input class="main-input" placeholder="请输入中央认证账号" placeholder-style="color: white;" bindinput="bindinput" data-index="username" value="{{username}}"></input>
+      <input class="main-input" placeholder="请输入中央认证账号" placeholder-style="color: white;" bindinput="bindinput" data-index="username" value="{{username}}" confirm-type="next" confirm-hold="{{true}}" bindconfirm="setPwdFocus"></input>
     </view>
     <view class="main-inputArea">
       <view class="iconfont iconlock main-icon"></view>
-      <input class="main-input" placeholder="请输入中央认证密码" placeholder-style="color: white;" bindinput="bindinput" data-index="password" type="password" value="{{password}}"></input>
+      <input class="main-input" placeholder="请输入中央认证密码" placeholder-style="color: white;" bindinput="bindinput" data-index="password" type="password" value="{{password}}" focus="{{isPwdFocus}}"></input>
     </view>
     <view class="help" bindtap="showHelp">
       <view style="margin-left: 3px;">帮助</view>

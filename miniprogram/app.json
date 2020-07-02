@@ -10,7 +10,8 @@
     "pages/document/document",
     "pages/document/serach",
     "pages/document/folderDetail",
-    "pages/wantDGUTbetter/wantDGUTbetter"
+    "pages/apply/apply",
+    "pages/apply/newApply"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -22,6 +23,7 @@
   "sitemapLocation": "sitemap.json",
   "usingComponents": {
     "mp-footer": "/weui/footer/footer",
+    "mp-cells": "/weui/cells/cells",
     "mp-cell": "/weui/cell/cell",
     "mp-dialog": "/weui/dialog/dialog",
     "mp-picker": "/weui/picker/picker",
@@ -29,10 +31,8 @@
     "mp-tabs": "weui/tabs/index",
     "mp-searchbar": "/weui/searchbar/searchbar",
     "mp-line": "/weui/line/line",
+    "mp-slideview": "weui/slideview/slideview",
     "van-skeleton": "/vant/skeleton/index",
-    "van-cell": "/vant/cell/index",
-    "van-cell-group": "/vant/cell-group/index",
-    "van-field": "/vant/field/index",
     "van-switch": "/vant/switch/index"
   },
   "permission": {

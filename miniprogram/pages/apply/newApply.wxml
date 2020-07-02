@@ -1,0 +1,32 @@
+<!--miniprogram/pages/apply/newApply.wxml-->
+<view class="page">
+	<mp-cells ext-class="my-cells" title="申请人信息">
+		<mp-cell title="姓名" value="林家祥"></mp-cell>
+		<mp-cell title="组织" value="校学生会"></mp-cell>
+		<button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
+			<mp-cell title="电话" value="{{phoneNumber}}" link hover="{{false}}"></mp-cell>
+		</button>
+		<mp-cell title="短信提醒">
+			<radio value="sms" checked="{{isSMS}}" bindtap="changeSMS" data-id="{{0}}" />是
+			<radio value="nosms" checked="{{!isSMS}}" bindtap="changeSMS" data-id="{{1}}" />否
+		</mp-cell>
+	</mp-cells>
+
+	<mp-cells ext-class="my-cells" title="物资信息">
+		<mp-cell title="姓名" value="林家祥"></mp-cell>
+		<mp-cell title="组织" value="校学生会"></mp-cell>
+		<button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
+			<mp-cell title="电话" value="{{phoneNumber}}" link hover="{{false}}"></mp-cell>
+		</button>
+		<mp-cell title="短信提醒">
+			<radio value="sms" checked="{{isSMS}}" bindtap="changeSMS" data-id="{{0}}" />是
+			<radio value="nosms" checked="{{!isSMS}}" bindtap="changeSMS" data-id="{{1}}" />否
+			<switch style="zoom: .6;" checked="{{switch1Checked}}" bindchange="switch1Change" slot="footer" />
+		</mp-cell>
+		
+	</mp-cells>
+
+	<mp-slideview buttons="{{slideButtons}}" bindbuttontap="slideButtonTap">
+		<mp-cell value="左滑可以删除" footer="说明文字"></mp-cell>
+	</mp-slideview>
+</view>

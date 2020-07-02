@@ -23,8 +23,10 @@
 			"disablePlugins": [],
 			"outputPath": ""
 		},
-		"useCompilerModule": false,
-		"userConfirmedUseCompilerModuleSwitch": false
+		"useCompilerModule": true,
+		"userConfirmedUseCompilerModuleSwitch": true,
+		"compileHotReLoad": false,
+		"bundle": true
 	},
 	"appid": "wxb8272024f27f861d",
 	"projectname": "xiaoguanjia",
@@ -119,8 +121,15 @@
 				},
 				{
 					"id": -1,
-					"name": "pages/wantDGUTbetter/wantDGUTbetter",
-					"pathName": "pages/wantDGUTbetter/wantDGUTbetter",
+					"name": "pages/apply/apply",
+					"pathName": "pages/apply/apply",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/apply/newApply",
+					"pathName": "pages/apply/newApply",
 					"scene": null
 				}
 			]

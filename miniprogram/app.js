@@ -17,6 +17,9 @@ App({
       })
     }
 
+    /**
+     * cheshi
+     */
     this.globalData = {
       isLogined: false, // 登录态
       // 位置信息
@@ -37,14 +40,16 @@ App({
       setting: {
         isUseFinger: false,
       },
-      hasUserData: false,   // 是否有登记学生组织信息和联系方式
-      userData: undefined,  // 学生组织信息和联系方式
+      hasUserData: false, // 是否有登记学生组织信息和联系方式
+      userData: undefined, // 学生组织信息和联系方式
 
-      document: [],   // 常用文档根数据目录
+      document: [], // 常用文档根数据目录
 
-      safeArea: [],   // 设备安全区域
-      system: '',     // 设备系统
+      safeArea: [], // 设备安全区域
+      system: '', // 设备系统
       windowHeight: '', // 窗口高度
+      statusBarHeight: '', // 状态栏高度
+      homeBarHeight: '', // home区域高度
     }
 
     // 获取用户授权设置
@@ -87,6 +92,7 @@ App({
     // 校验指纹能力
     wx.checkIsSupportSoterAuthentication({
       success: res => {
+        if (res.supportMode == undefined) return
         if (res.supportMode[0] == 'fingerPrint') {
           wx.checkIsSoterEnrolledInDevice({
             checkAuthMode: 'fingerPrint',
@@ -123,8 +129,10 @@ App({
       complete: (res) => {
         console.log(res)
         this.globalData.safeArea = res.safeArea,
-        this.globalData.system = res.system,
-        this.globalData.windowHeight = res.windowHeight
+          this.globalData.system = res.system,
+          this.globalData.windowHeight = res.windowHeight
+        this.globalData.statusBarHeight = res.statusBarHeight
+        this.globalData.homeBarHeight = res.screenHeight - res.safeArea.bottom
       },
     })
   }

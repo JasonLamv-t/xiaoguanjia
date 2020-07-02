@@ -1,0 +1,28 @@
+<!--miniprogram/pages/wantDGUTbatter/wantDGUTbetter.wxml-->
+<view class="page">
+
+	<mp-tabs tabs="{{tabs}}" activeTab="{{activeTab}}" tab-underline-color="#424ea9" tab-class="tabs" swiperStyle="height: {{swiperHeight}}px" bindtabclick="onTabCLick" bindchange="onChange" activeClass="tab-bar-title__selected">
+
+		<scroll-view scroll-y="true" style="height: {{swiperHeight}}px" enable-back-to-top slot="tab-content-0">
+			<block wx:for="{{6}}">
+				<view class="cell">
+					<view class="cell-left">
+						<view class="cell-title">
+							<text class="cell-title-text">问题标题</text>
+							<view class="cell-flag">已结单</view>
+						</view>
+						<view class="cell-desc">工单号：</view>
+						<view class="cell-desc">提交时间：</view>
+					</view>
+					<view class="cell-right-icon iconfont iconright"></view>
+				</view>
+			</block>
+		</scroll-view>
+		<view slot="tab-content-1">test2</view>
+		<view slot="tab-content-2">test3</view>
+
+	</mp-tabs>
+	<view  class="weui-actionsheet weui-actionsheet_toggle actionsheet">
+	<view class="addButton" bindtap="showAction">提交申请</view>
+	</view>
+</view>

@@ -24,26 +24,27 @@ Page({
     }, {
       text: '立即开启'
     }],
+    // 密码是否聚焦
+    isPwdFocus: false,
     needCallback: false, // 需要设置回调，告诉上一个页面我返回了
+  },
+
+  // 输入账户完成后自动聚焦密码
+  setPwdFocus: function () {
+    this.setData({ isPwdFocus: true })
   },
 
   // 显示帮助窗口
   showHelp: function () {
-    this.setData({
-      helpShow: true
-    })
+    this.setData({ helpShow: true })
   },
 
   // 监听输入框输入，实时更新输入框数据
   bindinput: function (event) {
     if (event.target.dataset.index == 'username') {
-      this.setData({
-        username: event.detail.value
-      })
+      this.setData({ username: event.detail.value })
     } else {
-      this.setData({
-        password: event.detail.value
-      })
+      this.setData({ password: event.detail.value })
     }
   },
 
@@ -56,13 +57,8 @@ Page({
         challenge: '123456',
         authContent: '请验证指纹',
         success: res => {
-          this.setData({
-            dialogShow: false
-          })
-          wx.showToast({
-            title: '验证成功',
-            icon: 'success'
-          })
+          this.setData({ dialogShow: false })
+          wx.showToast({ title: '验证成功' })
           // 保存密码到本地
           wx.setStorage({
             key: 'user',
@@ -80,18 +76,14 @@ Page({
         }
       })
     } else {
-      this.setData({
-        dialogShow: false
-      })
+      this.setData({ dialogShow: false })
       wx.navigateBack({})
     }
   },
 
   // 登录
   async login(event) {
-    wx.showLoading({
-      title: '登录中',
-    })
+    wx.showLoading({ title: '登录中' })
 
     // 通过云函数获取token和session
     wxapi.callFunction({
@@ -181,14 +173,9 @@ Page({
 
                 // 根据指纹能力提示弹窗
                 if (app.globalData.canFingerPrintUse && !app.globalData.setting.isUseFinger) {
-                  this.setData({
-                    dialogShow: true
-                  })
+                  this.setData({ dialogShow: true })
                 } else {
-                  wx.showToast({
-                    title: '登录成功',
-                    icon: 'success'
-                  })
+                  wx.showToast({ title: '登录成功' })
                   setTimeout(function () {
                     wx.navigateBack({})
                   }, 1500)
@@ -197,17 +184,13 @@ Page({
             } else {
               // 如果有错误
               wx.hideLoading()
-              this.setData({
-                error: res.data.message
-              })
+              this.setData({ error: res.data.message })
             }
           })
         } else {
           // 如果验证不通过，显示错误信息
           wx.hideLoading()
-          this.setData({
-            error: res.message
-          })
+          this.setData({ error: res.message })
         }
       })
     })

@@ -104,7 +104,7 @@ page {
   text-align: center;
 }
 
-.qrcode{
+.button{
   width: 64rpx;
   height: 64rpx;
   margin: auto auto;

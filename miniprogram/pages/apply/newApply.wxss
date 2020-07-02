@@ -1,0 +1,23 @@
+/* miniprogram/pages/apply/newApply.wxss */
+.weui-cell__hd {
+  width: 84px;
+}
+
+button {
+  padding-left: 0;
+  padding-right: 0;
+  line-height: unset;
+  text-align: unset;
+  font-size: unset;
+  color: unset;
+  background-color: unset;
+}
+
+.button-hover {
+  color: unset;
+  background-color: unset;
+}
+
+button::after {
+  border: none;
+}

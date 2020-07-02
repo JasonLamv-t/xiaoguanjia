@@ -1,24 +1,28 @@
 <view class="page">
-  <van-cell-group title="个人信息">
-    <van-field label="姓名" value="{{stuData.name}}" border="{{ false }}" disabled />
-    <van-field label="学号" value="{{stuData.stuID}}" border="{{ false }}" disabled />
-    <van-field label="学院" value="{{stuData.faculty}}" border="{{ false }}" disabled />
-    <van-field label="班级" value="{{stuData._class}}" border="{{ false }}" disabled />
-  </van-cell-group>
+	<mp-cells ext-class="my-cells" title="个人信息">
+		<mp-cell title="姓名" value="{{stuData.name}}"></mp-cell>
+		<mp-cell title="学号" value="{{stuData.stuID}}"></mp-cell>
+		<mp-cell title="学院" value="{{stuData.faculty}}"></mp-cell>
+		<mp-cell title="班级" value="{{stuData._class}}"></mp-cell>
+		<mp-cell title="手机" value="{{stuData._class}}" link="{{true}}"></mp-cell>
+	</mp-cells>
 
-  <!-- <van-cell-group title="学生组织信息">
-    <van-field label="组织类型" value="林家祥" border="{{ false }}" disabled>
-      <view slot="right-icon" class="iconfont iconright"></view>
-    </van-field>
-    <van-field label="所在组织" value="林家祥" border="{{ false }}" disabled>
-      <view slot="right-icon" class="iconfont iconright"></view>
-    </van-field>
-    <van-field label="手机" value="林家祥" border="{{ false }}" disabled />
-  </van-cell-group> -->
-  
-  <van-cell-group title="账户设置">
-    <van-cell title="指纹识别登录" center>
-      <van-switch slot="" size="46rpx" checked="{{ isUseFinger }}" bind:change="setFinger" />
-    </van-cell>
-  </van-cell-group>
+	<mp-cells ext-class="my-cells" title="学生组织信息">
+		<mp-cell title="立即绑定" link="{{true}}" wx:if="{{needBind}}"></mp-cell>
+		<block wx:else>
+			<mp-cell title="组织类型" value="{{stuData.name}}"></mp-cell>
+			<mp-cell title="所在组织" value="{{stuData.stuID}}"></mp-cell>
+			<mp-cell title="身份" value="{{stuData.faculty}}"></mp-cell>
+		</block>
+	</mp-cells>
+
+	<mp-cells ext-class="my-cells" title="账户设置">
+		<mp-cell title="指纹登录">
+			<switch slot="footer" checked="{{isUseFinger}}" bindchange="setFinger" />
+		</mp-cell>
+	</mp-cells>
+
+	<mp-dialog title="" show="{{showDialog}}" bindbuttontap="tapDialogButton" buttons="{{[{ text: '取消' }, { text: '立即绑定' }]}}" data-type="hint"></mp-dialog>
+
+	<mp-toptips msg="{{error}}" type="error" show="{{error}}"></mp-toptips>
 </view>

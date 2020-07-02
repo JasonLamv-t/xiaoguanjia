@@ -41,12 +41,12 @@ Page({
 
   // 点击弹窗前往中央认证页面
   navigatoCas: function (event) {
+    this.setData({ isDialogShow: false })
     if (event.detail.index) {   // 点击前往登陆
       wx.navigateTo({
         url: '../casLogin/casLogin?callback=casCallback',
       })
     }
-    this.setData({ isDialogShow: false })
   },
 
   // 按名称比较
