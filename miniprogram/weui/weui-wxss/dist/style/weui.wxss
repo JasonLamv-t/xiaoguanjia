@@ -2155,7 +2155,7 @@ icon[type=success]:after, icon[type=success]:before {
 }
 
 .weui-dialog__title {
-  font-weight: 700;
+  font-weight: 500;
   font-size: 17px;
   line-height: 1.4;
 }
@@ -2167,7 +2167,7 @@ icon[type=success]:after, icon[type=success]:before {
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   padding: 0 24px;
-  margin-bottom: 32px;
+  margin-bottom: 20px;
   min-height: 40px;
   font-size: 17px;
   line-height: 1.4;
@@ -2179,7 +2179,7 @@ icon[type=success]:after, icon[type=success]:before {
 
 .weui-dialog__bd:first-child {
   padding: 32px 24px 0;
-  font-weight: 700;
+  font-weight: 500;
   color: rgba(0, 0, 0, 0.9);
   -webkit-flex-direction: column;
   -webkit-box-orient: vertical;
@@ -2198,8 +2198,8 @@ icon[type=success]:after, icon[type=success]:before {
 
 .weui-dialog__ft {
   position: relative;
-  line-height: 64px;
-  min-height: 64px;
+  line-height: 56px;
+  min-height: 56px;
   font-size: 17px;
 }
 
@@ -2220,7 +2220,7 @@ icon[type=success]:after, icon[type=success]:before {
   -webkit-flex: 1;
   flex: 1;
   color: #576b95;
-  font-weight: 700;
+  font-weight: 500;
   text-decoration: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   position: relative;
@@ -2251,7 +2251,7 @@ icon[type=success]:after, icon[type=success]:before {
 
 @media screen and (min-width:352px) {
   .weui-dialog {
-    width: 320px;
+    width: 300px;
     margin: 0 auto;
   }
 }

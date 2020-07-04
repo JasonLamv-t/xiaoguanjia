@@ -1,5 +1,10 @@
 //app.js
 import wxapi from './utils/wxapi.js'
+import { promisifyAll, promisify } from 'miniprogram-api-promise';
+
+// promisify all wx's api
+const wxp = {}
+promisifyAll(wx, wxp)
 
 App({
   onLaunch: function () {
@@ -17,10 +22,11 @@ App({
       })
     }
 
-    /**
-     * cheshi
-     */
+    const db = wx.cloud.database()
+
+    // 全局变量
     this.globalData = {
+      wxp: wxp,         // promise API
       isLogined: false, // 登录态
       // 位置信息
       location: {
@@ -34,7 +40,7 @@ App({
         username: '',
         password: ''
       },
-      stuData: '', // 用户学工系统信息
+      stuData: '', // 用户学工系统信息+用户绑定的手机号
       image: '', //用户证件照
       // 用户设置
       setting: {
@@ -88,6 +94,15 @@ App({
         })
       }
     })
+
+    // 获取用户绑定的手机号
+    db.collection('userPhone').get()
+      .then(res => {
+        console.log(res)
+        if(res.data.length){
+          this.globalData.basicInfo.phone = res.data[0].phone
+        }
+      })
 
     // 校验指纹能力
     wx.checkIsSupportSoterAuthentication({

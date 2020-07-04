@@ -151,10 +151,16 @@ Page({
                   password: this.data.password
                 }
                 // 保存个人信息到全局变量和本地
-                app.globalData.basicInfo = response.data
+                app.globalData.basicInfo.username = response.data.username
+                app.globalData.basicInfo.name = response.data.name
+                app.globalData.basicInfo.faculty = response.data.faculty
+                app.globalData.basicInfo.faculty_title = response.data.faculty_title
+                app.globalData.basicInfo.wx_openid = response.data.wx_openid
+                app.globalData.basicInfo.openid = response.data.openid
+                app.globalData.basicInfo.group = response.data.group
                 wx.setStorage({
                   key: 'basicInfo',
-                  data: response.data,
+                  data: app.globalData.basicInfo,
                 })
 
                 // 根据绑定学校中央认证的wx_openid来查询是否填写了学生组织信息

@@ -12,6 +12,25 @@ page {
   width: 80px;
 }
 
+button {
+  padding-left: 0;
+  padding-right: 0;
+  line-height: unset;
+  text-align: unset;
+  font-size: unset;
+  color: unset;
+  background-color: unset;
+}
+
+.button-hover {
+  color: unset;
+  background-color: unset;
+}
+
+button::after {
+  border: none;
+}
+
 .wx-switch-input {
   width: 42px !important;
   height: 22px !important;
@@ -27,4 +46,18 @@ page {
   height: 20px !important;
 }
 
-/* 中间小圆球 */
+.dialog{
+  display: inline-flex;
+}
+
+.box{
+  width: 32px;
+  height: 40px;
+  margin: auto 3px;
+  border: solid 1px #424EA9;
+}
+
+.hide-input{
+  width: 0;
+  height: 0;
+}

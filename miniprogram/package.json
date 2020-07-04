@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "miniprogram-api-promise": "^1.0.4",
+    "weui-miniprogram": "^1.0.3"
+  },
+  "name": "xiaoguanjia",
+  "version": "1.0.0",
+  "main": "app.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "jasonlam",
+  "license": "ISC",
+  "description": ""
+}

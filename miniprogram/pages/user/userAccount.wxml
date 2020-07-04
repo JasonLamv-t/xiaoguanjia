@@ -4,7 +4,9 @@
 		<mp-cell title="学号" value="{{stuData.stuID}}"></mp-cell>
 		<mp-cell title="学院" value="{{stuData.faculty}}"></mp-cell>
 		<mp-cell title="班级" value="{{stuData._class}}"></mp-cell>
-		<mp-cell title="手机" value="{{stuData._class}}" link="{{true}}"></mp-cell>
+		<button open-type="getPhoneNumber" bindgetphonenumber="bindPhone">
+			<mp-cell title="手机" value="{{basicInfo.phone? basicInfo.phone:'点击立即绑定'}}" link hover="{{false}}"></mp-cell>
+		</button>
 	</mp-cells>
 
 	<mp-cells ext-class="my-cells" title="学生组织信息">
@@ -22,7 +24,12 @@
 		</mp-cell>
 	</mp-cells>
 
-	<mp-dialog title="" show="{{showDialog}}" bindbuttontap="tapDialogButton" buttons="{{[{ text: '取消' }, { text: '立即绑定' }]}}" data-type="hint"></mp-dialog>
+	<mp-dialog title="请输入授权码" show="{{showDialog}}" bindbuttontap="tapDialogButton" buttons="{{[{ text: '取消' }, { text: '立即绑定' }]}}" data-type="hint">
+		<view class="dialog">
+			<view class="box" wx:for="{{6}}" wx:key="{{index}}" bindtap="setFocus">{{ authCode>index? authCode[index]:'' }}</view>
+			<input class="hide-input" type="number" focus="{{isFocus}}" bindinput="typing"></input>
+		</view>
+	</mp-dialog>
 
 	<mp-toptips msg="{{error}}" type="error" show="{{error}}"></mp-toptips>
 </view>

@@ -11,10 +11,53 @@ Page({
   data: {
     isUseFinger: true, // 是否启用指纹
     canFingerPrintUse: false, // 是否拥有指纹能力
+    basicInfo: '',    // 基本信息
     stuData: '',  // 学工系统信息
     error: '',    // 错误提示
     needBind: false,  // 需要绑定组织信息
     showDialog: false,  // 显示绑定提示
+
+    authCode: '',       // 授权码
+    isFocus: true,      // 是否聚焦
+  },
+
+  // 绑定手机号码
+  bindPhone: function (e) {
+    console.log(e)
+    if (e.detail.cloudID) {
+      wx.cloud.callFunction({
+        name: 'getPhoneNumber',
+        data: {
+          cloudID: wx.cloud.CloudID(e.detail.cloudID)
+        }
+      }).then(res => {
+        console.log(res)
+        db.collection('userPhone').add({
+          data: { phone: res.result }
+        })
+        app.globalData.stuData.phone = res.result
+        this.setData({ stuData: app.globalData.stuData })
+        wx.setStorage({
+          key: 'basicInfo',
+          data: app.globalData.basicInfo,
+        })
+      }).catch(e => {
+        this.setData({error: '绑定失败'})
+      })
+    } else {
+      this.setData({error: '绑定失败'})
+    }
+  },
+
+  // 实时刷新
+  typing: function (e) {
+    console.log(e)
+    this.setData({ authCode: e.detail.value })
+  },
+
+  // 设置聚焦
+  setFocus: function (e) {
+    this.setData({ isFocus: true })
   },
 
   // 点击dialog按钮
@@ -117,7 +160,8 @@ Page({
     this.data.canFingerPrintUse = app.globalData.canFingerPrintUse
 
     this.setData({
-      stuData: app.globalData.stuData
+      stuData: app.globalData.stuData,
+      basicInfo: app.globalData.basicInfo
     })
   },
 

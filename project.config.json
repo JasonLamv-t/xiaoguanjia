@@ -13,20 +13,21 @@
 		"nodeModules": true,
 		"autoAudits": true,
 		"showShadowRootInWxmlPanel": true,
-		"scopeDataCheck": true,
+		"scopeDataCheck": false,
 		"uglifyFileName": true,
 		"checkInvalidKey": true,
 		"checkSiteMap": true,
 		"uploadWithSourceMap": true,
+		"compileHotReLoad": false,
 		"babelSetting": {
 			"ignore": [],
 			"disablePlugins": [],
 			"outputPath": ""
 		},
+		"bundle": true,
+		"useIsolateContext": true,
 		"useCompilerModule": true,
-		"userConfirmedUseCompilerModuleSwitch": true,
-		"compileHotReLoad": false,
-		"bundle": true
+		"userConfirmedUseCompilerModuleSwitch": true
 	},
 	"appid": "wxb8272024f27f861d",
 	"projectname": "xiaoguanjia",

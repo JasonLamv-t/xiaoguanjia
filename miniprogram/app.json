@@ -22,18 +22,16 @@
   },
   "sitemapLocation": "sitemap.json",
   "usingComponents": {
-    "mp-footer": "/weui/footer/footer",
-    "mp-cells": "/weui/cells/cells",
-    "mp-cell": "/weui/cell/cell",
-    "mp-dialog": "/weui/dialog/dialog",
-    "mp-picker": "/weui/picker/picker",
-    "mp-toptips": "/weui/toptips/toptips",
-    "mp-tabs": "weui/tabs/index",
-    "mp-searchbar": "/weui/searchbar/searchbar",
+    "mp-cells": "miniprogram_npm/weui-miniprogram/cells/cells",
+    "mp-cell": "miniprogram_npm/weui-miniprogram/cell/cell",
+    "mp-dialog": "miniprogram_npm/weui-miniprogram/dialog/dialog",
+    "mp-toptips": "miniprogram_npm/weui-miniprogram/toptips/toptips",
+    "mp-searchbar": "miniprogram_npm/weui-miniprogram/searchbar/searchbar",
     "mp-line": "/weui/line/line",
-    "mp-slideview": "weui/slideview/slideview",
-    "van-skeleton": "/vant/skeleton/index",
-    "van-switch": "/vant/switch/index"
+    "mp-slideview": "miniprogram_npm/weui-miniprogram/slideview/slideview",
+    "mp-footer": "/weui/footer/footer",
+    "mp-tabs": "weui/tabs/index",
+    "van-skeleton": "/vant/skeleton/index"
   },
   "permission": {
     "scope.userLocation": {
