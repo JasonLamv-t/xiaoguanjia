@@ -26,8 +26,10 @@
 
 	<mp-dialog title="请输入授权码" show="{{showDialog}}" bindbuttontap="tapDialogButton" buttons="{{[{ text: '取消' }, { text: '立即绑定' }]}}" data-type="hint">
 		<view class="dialog">
-			<view class="box" wx:for="{{6}}" wx:key="{{index}}" bindtap="setFocus">{{ authCode>index? authCode[index]:'' }}</view>
-			<input class="hide-input" type="number" focus="{{isFocus}}" bindinput="typing"></input>
+			<view class="box iconfont {{authCode.length<=index? 'iconline':''}}" wx:for="{{6}}" wx:key="{{index}}" bindtap="setFocus">
+			<view style="font-size: 24px; font-weight: 500; color: #232323;">{{authCode.length>index? authCode[index]:''}}</view>
+			</view>
+			<input class="hide-input" type="number" focus="{{isFocus}}" maxlength="6" bindinput="typing"></input>
 		</view>
 	</mp-dialog>
 

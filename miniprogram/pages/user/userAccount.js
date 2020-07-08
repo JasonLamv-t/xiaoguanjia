@@ -17,7 +17,7 @@ Page({
     needBind: false,  // 需要绑定组织信息
     showDialog: false,  // 显示绑定提示
 
-    authCode: '',       // 授权码
+    authCode: '123',       // 授权码
     isFocus: true,      // 是否聚焦
   },
 
@@ -25,6 +25,7 @@ Page({
   bindPhone: function (e) {
     console.log(e)
     if (e.detail.cloudID) {
+      // 使用cloudID通过云调用换取敏感信息
       wx.cloud.callFunction({
         name: 'getPhoneNumber',
         data: {
@@ -32,20 +33,24 @@ Page({
         }
       }).then(res => {
         console.log(res)
-        db.collection('userPhone').add({
+        // 如果数据库没有数据则新增
+        if (!this.data.basicInfo.phone) db.collection('userPhone').add({
           data: { phone: res.result }
         })
-        app.globalData.stuData.phone = res.result
-        this.setData({ stuData: app.globalData.stuData })
+        else db.collection('userPhone').where({}).update({
+          data: {phone: res.result}
+        })
+        app.globalData.basicInfo.phone = res.result
+        this.setData({ basicInfo: app.globalData.basicInfo })
         wx.setStorage({
           key: 'basicInfo',
           data: app.globalData.basicInfo,
         })
       }).catch(e => {
-        this.setData({error: '绑定失败'})
+        this.setData({ error: '绑定失败' })
       })
     } else {
-      this.setData({error: '绑定失败'})
+      this.setData({ error: '绑定失败' })
     }
   },
 

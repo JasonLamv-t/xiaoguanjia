@@ -34,7 +34,7 @@ App({
         longitude: ''
       },
       canFingerPrintUse: false, // 是否有指纹能力
-      basicInfo: '', // 中央认证返回的基本信息，包括了绑定学校认证系统的wx_openid
+      basicInfo: {}, // 中央认证返回的基本信息，包括了绑定学校认证系统的wx_openid
       // 用户账户及密码
       user: {
         username: '',
@@ -96,56 +96,59 @@ App({
     })
 
     // 获取用户绑定的手机号
-    db.collection('userPhone').get()
-      .then(res => {
-        console.log(res)
-        if(res.data.length){
-          this.globalData.basicInfo.phone = res.data[0].phone
-        }
-      })
+    db.collection('userPhone').get().then(res => {
+      console.log(res)
+      if (res.data.length) {
+        this.globalData.basicInfo.phone = res.data[0].phone
+      }
+    }).catch(err => {
+      console.error('get DB user phone fail', err)
+    })
 
     // 校验指纹能力
-    wx.checkIsSupportSoterAuthentication({
-      success: res => {
-        if (res.supportMode == undefined) return
-        if (res.supportMode[0] == 'fingerPrint') {
-          wx.checkIsSoterEnrolledInDevice({
-            checkAuthMode: 'fingerPrint',
-            success: res => {
-              this.globalData.canFingerPrintUse = res.isEnrolled
-            }
-          })
-        }
+    wxp.checkIsSupportSoterAuthentication().then(res => {
+      if (res.supportMode == undefined) return
+      if (res.supportMode[0] == 'fingerPrint') {
+        wx.checkIsSoterEnrolledInDevice({
+          checkAuthMode: 'fingerPrint',
+          success: res => {
+            this.globalData.canFingerPrintUse = res.isEnrolled
+          }
+        })
       }
+    }).catch(err => {
+      console.error('check finger fail', err)
     })
 
     // 获取储存在本地的用户基本信息
-    wx.getStorage({
-      key: 'basicInfo',
-      success: res => {
-        this.globalData.basicInfo = res.data
+    wxp.getStorage({ key: 'basicInfo' }).then(res => {
+      this.globalData.basicInfo = res.data
 
-        if (this.basicInfoReadyCallback) {
-          this.basicInfoReadyCallback(res)
-        }
-      },
+      if (this.basicInfoReadyCallback) {
+        this.basicInfoReadyCallback(res)
+      }
+    }).catch(err => {
+      console.error('get basicInfo fail', err)
     })
 
     // 获取储存在本地的用户设置
-    wx.getStorage({
-      key: 'setting',
-      success: res => {
-        this.globalData.setting = res.data
-      },
+    wxp.getStorage({ key: 'setting' }).then(res => {
+      this.globalData.setting = res.data
+    }).catch(err => {
+      console.error('get setting err', err)
+      wx.setStorage({
+        key: 'setting',
+        data: this.globalData.setting,
+      })
     })
 
     // 获取设备信息
     wx.getSystemInfo({
-      complete: (res) => {
+      complete: res => {
         console.log(res)
-        this.globalData.safeArea = res.safeArea,
-          this.globalData.system = res.system,
-          this.globalData.windowHeight = res.windowHeight
+        this.globalData.safeArea = res.safeArea
+        this.globalData.system = res.system
+        this.globalData.windowHeight = res.windowHeight
         this.globalData.statusBarHeight = res.statusBarHeight
         this.globalData.homeBarHeight = res.screenHeight - res.safeArea.bottom
       },

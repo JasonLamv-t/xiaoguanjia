@@ -66,7 +66,7 @@ Page({
 
   onShow: function () {
     // 更新用户信息
-    if (app.globalData.basicInfo) {
+    if (app.globalData.basicInfo.username) {
       this.setData({
         hasUserData: true,
         userData: app.globalData.basicInfo

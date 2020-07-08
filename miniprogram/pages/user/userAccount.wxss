@@ -53,8 +53,8 @@ button::after {
 .box{
   width: 32px;
   height: 40px;
-  margin: auto 3px;
-  border: solid 1px #424EA9;
+  line-height: 40px;
+  font-size: 20px;
 }
 
 .hide-input{
