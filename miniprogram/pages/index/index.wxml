@@ -70,6 +70,16 @@
 				</view>
 			</navigator>
 
+			<navigator url="../apply/apply" hover-class="none" slot="tab-content-0">
+				<view class="module" style="margin-top: 20rpx;">
+					<view class="module-icon iconfont iconaudit"></view>
+					<view class="module-text">
+						<view class="module-title">物资和展板申请</view>
+						<view class="module-label">申请借用物资和使用展板</view>
+					</view>
+				</view>
+			</navigator>
+
 			<!-- <navigator url="../wantDGUTbetter/wantDGUTbetter" hover-class="none" slot="tab-content-0">
 				<view class="module" style="margin-top: 20rpx;">
 					<view class="module-icon iconfont iconbad_message"></view>

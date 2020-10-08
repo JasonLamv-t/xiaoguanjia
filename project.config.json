@@ -27,11 +27,15 @@
 		"bundle": true,
 		"useIsolateContext": true,
 		"useCompilerModule": true,
-		"userConfirmedUseCompilerModuleSwitch": true
+		"userConfirmedUseCompilerModuleSwitch": true,
+		"packNpmManually": false,
+		"packNpmRelationList": [],
+		"useMultiFrameRuntime": true,
+		"useApiHook": true
 	},
 	"appid": "wxb8272024f27f861d",
 	"projectname": "xiaoguanjia",
-	"libVersion": "2.9.0",
+	"libVersion": "2.10.0",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"condition": {

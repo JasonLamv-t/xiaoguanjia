@@ -12,9 +12,9 @@
 	<mp-cells ext-class="my-cells" title="学生组织信息">
 		<mp-cell title="立即绑定" link="{{true}}" wx:if="{{needBind}}"></mp-cell>
 		<block wx:else>
-			<mp-cell title="组织类型" value="{{stuData.name}}"></mp-cell>
-			<mp-cell title="所在组织" value="{{stuData.stuID}}"></mp-cell>
-			<mp-cell title="身份" value="{{stuData.faculty}}"></mp-cell>
+			<mp-cell title="组织类型" value="{{org.type}}"></mp-cell>
+			<mp-cell title="所在组织" value="{{org.name}}"></mp-cell>
+			<mp-cell title="身份" value="{{org.auth}}"></mp-cell>
 		</block>
 	</mp-cells>
 

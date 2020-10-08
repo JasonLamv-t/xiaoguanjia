@@ -12,13 +12,14 @@ Page({
     isUseFinger: true, // 是否启用指纹
     canFingerPrintUse: false, // 是否拥有指纹能力
     basicInfo: '',    // 基本信息
-    stuData: '',  // 学工系统信息
-    error: '',    // 错误提示
-    needBind: false,  // 需要绑定组织信息
-    showDialog: false,  // 显示绑定提示
+    stuData: '',      // 学工系统信息
+    org: '',          // 组织信息
+    error: '',        // 错误提示
+    needBind: false,      // 需要绑定组织信息
+    showDialog: false,    // 显示绑定提示
 
-    authCode: '123',       // 授权码
-    isFocus: true,      // 是否聚焦
+    authCode: '123',      // 授权码
+    isFocus: false,       // 是否聚焦
   },
 
   // 绑定手机号码
@@ -38,7 +39,7 @@ Page({
           data: { phone: res.result }
         })
         else db.collection('userPhone').where({}).update({
-          data: {phone: res.result}
+          data: { phone: res.result }
         })
         app.globalData.basicInfo.phone = res.result
         this.setData({ basicInfo: app.globalData.basicInfo })
@@ -56,7 +57,7 @@ Page({
 
   // 实时刷新
   typing: function (e) {
-    console.log(e)
+    // console.log(e)
     this.setData({ authCode: e.detail.value })
   },
 
@@ -68,8 +69,33 @@ Page({
   // 点击dialog按钮
   tapDialogButton(e) {
     console.log(e)
+    let authCode = this.data.authCode
     // 点击取消
     if (!e.detail.index) this.setData({ showDialog: false })
+    else {
+      if (authCode.length != 6) {
+        this.setData({ error: '请输入完整的授权码' })
+      } else {
+        console.log(authCode)
+        db.collection('authCode').where({
+          authCode: authCode
+        }).get().then(res => {
+          console.log(res)
+          if (res.data.length == 0) {
+            this.setData({ error: '无效的授权码！' })
+          } else {
+            res = res.data[0]
+            db.collection('userData').add({
+              data: {
+                orgType: res.orgType,
+                orgName: res.orgName,
+                orgAuth: res.orgAuth
+              }
+            })
+          }
+        })
+      }
+    }
   },
 
   // 更改指纹设置
@@ -157,6 +183,16 @@ Page({
             if (res.confirm) this.setData({ showDialog: true })
           }
         })
+        else{
+          res = res.data[0]
+          this.setData({
+            org:{
+              name: res.orgName,
+              type: res.orgType,
+              auth: res.orgAuth
+            }
+          })
+        }
       }).catch(err => this.setData({ error: '网络错误' }))
 
     this.setData({

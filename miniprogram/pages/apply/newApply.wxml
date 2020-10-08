@@ -1,10 +1,11 @@
 <!--miniprogram/pages/apply/newApply.wxml-->
 <view class="page">
-	<mp-cells ext-class="my-cells" title="申请人信息">
-		<mp-cell title="姓名" value="林家祥"></mp-cell>
-		<mp-cell title="组织" value="校学生会"></mp-cell>
+	<!-- 申请人信息 -->
+	<mp-cells title="申请人信息">
+		<mp-cell title="姓名" value="{{basicInfo.name}}" />
+		<mp-cell title="组织" value="{{org.orgName}}" />
 		<button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
-			<mp-cell title="电话" value="{{phoneNumber}}" link hover="{{false}}"></mp-cell>
+			<mp-cell title="电话" value="{{phoneNumber}}" link hover="{{false}}" />
 		</button>
 		<mp-cell title="短信提醒">
 			<radio value="sms" checked="{{isSMS}}" bindtap="changeSMS" data-id="{{0}}" />是
@@ -12,21 +13,31 @@
 		</mp-cell>
 	</mp-cells>
 
-	<mp-cells ext-class="my-cells" title="物资信息">
-		<mp-cell title="姓名" value="林家祥"></mp-cell>
-		<mp-cell title="组织" value="校学生会"></mp-cell>
-		<button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
-			<mp-cell title="电话" value="{{phoneNumber}}" link hover="{{false}}"></mp-cell>
-		</button>
-		<mp-cell title="短信提醒">
-			<radio value="sms" checked="{{isSMS}}" bindtap="changeSMS" data-id="{{0}}" />是
-			<radio value="nosms" checked="{{!isSMS}}" bindtap="changeSMS" data-id="{{1}}" />否
-			<switch style="zoom: .6;" checked="{{switch1Checked}}" bindchange="switch1Change" slot="footer" />
+	<!-- 物资信息 -->
+	<mp-cells title="物资信息" wx:if="{{!type}}">
+		<mp-cell ext-class="stuff" wx:for="{{stuffs}}">
+			<input slot="title" class="stuff-name" placeholder="请输入物品名称" value="{{item.name}}" bindinput="typingStuffName" data-index="{{index}}" />
+			<view slot="footer" class="stuff-footer">
+				<view class="iconfont iconminus-circle" bindtap="mimusValue" data-index="{{index}}" />
+				<input class="stuff-value" value="{{item.value}}" type="number" maxlength="3" bindinput="typingStuffValue" data-index="{{index}}" />
+				<view class="iconfont iconplus-circle" bindtap="addValue" data-index="{{index}}" />
+			</view>
 		</mp-cell>
-		
+		<mp-cell title="新增一项" bindtap="addStuff" wx:if="{{flash}}" style="color: #576b95;" />
 	</mp-cells>
 
-	<mp-slideview buttons="{{slideButtons}}" bindbuttontap="slideButtonTap">
-		<mp-cell value="左滑可以删除" footer="说明文字"></mp-cell>
-	</mp-slideview>
+	<mp-cells title="日期信息" footer="请于值班时间领用、归还">
+		<picker mode="date" value="{{loanDate}}" start="{{today}}" end="2021-01-30" bindchange="dateChange" id="loanDate">
+			<mp-cell title="领用日期" value="{{loanDate}}" link />
+		</picker>
+
+		<picker mode="date" value="{{returnDate}}" start="{{today}}" end="2021-01-30" bindchange="dateChange" id="returnDate">
+			<mp-cell title="归还日期" value="{{returnDate}}" link />
+		</picker>
+	</mp-cells>
+
+	<button class="main-button" bindtap="submit">提交申请</button>
+
 </view>
+
+<mp-dialog title="提示" show="{{org == null}}" bindbuttontap="cancel" buttons="{{[{text: '确定'}]}}">请先到「个人中心」->「账户与安全」完善个人组织信息</mp-dialog>

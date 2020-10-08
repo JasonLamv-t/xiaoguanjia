@@ -16,9 +16,9 @@ page {
   display: inline-flex;
 }
 
-.weui-tabs-swiper-0 {
+/* .weui-tabs-swiper-0 {
   height: 100rpx;
-}
+} */
 
 .swiper-item {
   height: 100%;
